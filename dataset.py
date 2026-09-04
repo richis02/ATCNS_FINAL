@@ -12,14 +12,14 @@ def is_valid_image(file_path):
     except Exception:
         return False
 
-def load_and_filter_dataset(dataset_root, mask_folder_name="groundtruth", mask_suffix="_gt"):
+def load_and_filter_dataset(dataset_root, img_folder_name= "tp", mask_folder_name="groundtruth", mask_suffix="_gt"):
     """
     Abbina le immagini alle maschere e scarta quelle non valide.
     Adattato per la struttura tipica di CASIA 2.0.
     """
     root_path = Path(dataset_root)
     # Supponiamo che le immagini manomesse siano nella cartella 'Tp'
-    tp_folder = root_path / "Tp"
+    tp_folder = root_path / img_folder_name
     mask_folder = root_path / mask_folder_name
     
     valid_pairs = []
